@@ -1,31 +1,14 @@
-title: Government Developer Portal
+timezone: Asia/Singapore
 
-email: johnson_koh@tech.gov.sg
-
-description: Extend Government's Potential
-
-baseurl: ""
-
-url: "https://developer.gov.sg"
-
-last_updated: 5 June 2018
-
-markdown: kramdown
+# SEO; see https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+title: developer.gov.sg
+description: Resources for building Singapore Government digital products
+url: "https://www.developer.gov.sg"
+logo: /assets/img/logo_developer.gov.sg.png
 
 plugins:
   - jekyll-assets
   - jekyll-seo-tag
-
-breadcrumbs:
-  root:
-    hide: false
-    image: false # Show image or title text
-
-assets:
-  sources:
-    - fonts
-
-include:
 
 exclude:
   - functions

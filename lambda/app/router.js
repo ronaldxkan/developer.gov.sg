@@ -508,7 +508,7 @@ router.put("/terms", async (req, res) => {
 });
 
 router.get("/events", async (req, res) => {
-    const response = await axios.get("https://api.meetup.com/STACK-X-by-GovTech-Singapore/events");
+    const response = await axios.get("https://api.meetup.com/STACK-X-by-GovTech-Singapore/events?fields=plain_text_description");
     res.send(response.data);
 });
 

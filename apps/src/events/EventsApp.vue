@@ -1,6 +1,6 @@
 <template>
     <div id="events-app">
-        <h2>Meetup.com events</h2>
+        <h4>Meetups</h4>
         <div class="spinner" v-if="loading">
             <div class="rect1"></div>
             <div class="rect2"></div>
@@ -8,21 +8,30 @@
             <div class="rect4"></div>
             <div class="rect5"></div>
         </div>
-        <div class="sgds-container" v-if="!loading">
-            <div class="sgds-card" v-for="event of events" :key="event.id">
-                <div class="sgds-card-content">
-                    <h3>{{ event.name }}</h3>
-                    <a :href="event.link">{{ event.link }}</a>
-                    <p>
-                        <span class="sgds-icon sgds-icon-calendar"></span>
-                        {{ event.time | moment("dddd, MMMM D, YYYY") }}
-                    </p>
-                    <p>
-                        <a :href="`https://google.com/search?q=${event.venue.address_1}`">
-                            <span class="sgds-icon sgds-icon-my-location"></span>
-                            {{ event.venue.name }}
-                        </a>
-                    </p>
+        <div v-if="!loading">
+            <div class="row is-multiline">
+                <div class="col is-flex" v-for="event of events" :key="event.id">
+                    <a class="sgds-card sgds-card-button" :href="event.link" target="_blank">
+                        <div class="sgds-card-header">
+                            <p class="sgds-card-header-title">{{ event.name }}</p>
+                        </div>
+                        <div class="sgds-card-content">
+                            <div class="row">
+                                <div class="col is-2 has-text-centered">
+                                    <p>{{ event.time | moment("MMM") }}</p>
+                                    <h2>{{ event.time | moment("D") }}</h2>
+                                </div>
+                                <div class="col is-10">
+                                    <p class="summary">{{ event.plain_text_description }}</p>
+                                    <br />
+                                    <small>
+                                        <span class="sgds-icon sgds-icon-my-location"></span>
+                                        {{ event.venue.name }}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -51,3 +60,14 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.summary {
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+</style>

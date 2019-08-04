@@ -1,3 +1,18 @@
+html,
+body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+.main {
+    flex: 1 0 auto;
+}
+.footer {
+    flex-shrink: 0;
+}
+
 /*Custom styling for editable page*/
 
 [v-cloak] {

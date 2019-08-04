@@ -3,51 +3,29 @@
         <h4>How can we help you?</h4>
         <h3>
             I need a
-            <div class="sgds-dropdown">
-                <div class="sgds-dropdown-trigger">
-                    <button
-                        class="sgds-button"
-                        aria-haspopup="true"
-                        aria-controls="sgds-dropdown-menu"
-                    >
-                        <span>{{ selectedApp }}</span>
-                        <span class="icon">
-                            <span class="sgds-icon sgds-icon-chevron-down"></span>
-                        </span>
-                    </button>
-                </div>
-                <div class="sgds-dropdown-menu" id="sgds-dropdown-menu" role="menu">
-                    <div class="sgds-dropdown-content">
-                        <a
-                            v-on:click="selectedApp = application"
-                            v-for="application in APPLICATIONS"
-                            class="sgds-dropdown-item"
-                            :key="application"
-                        >{{ application }}</a>
+            <div class="field">
+                <div class="control">
+                    <div class="select">
+                        <select v-model="selectedApp">
+                            <option
+                                v-for="application of APPLICATIONS"
+                                :key="application"
+                                :value="application"
+                            >{{ application }}</option>
+                        </select>
                     </div>
                 </div>
             </div>and
-            <div class="sgds-dropdown">
-                <div class="sgds-dropdown-trigger">
-                    <button
-                        class="sgds-button"
-                        aria-haspopup="true"
-                        aria-controls="sgds-dropdown-menu"
-                    >
-                        <span>{{ selectedStage.title }}</span>
-                        <span class="icon">
-                            <span class="sgds-icon sgds-icon-chevron-down"></span>
-                        </span>
-                    </button>
-                </div>
-                <div class="sgds-dropdown-menu" id="sgds-dropdown-menu" role="menu">
-                    <div class="sgds-dropdown-content">
-                        <a
-                            v-on:click="selectedStage = stage"
-                            v-for="stage in STAGES"
-                            class="sgds-dropdown-item"
-                            :key="stage.tag"
-                        >{{ stage.title }}</a>
+            <div class="field">
+                <div class="control">
+                    <div class="select">
+                        <select v-model="selectedStage">
+                            <option
+                                v-for="stage in STAGES"
+                                :key="stage.tag"
+                                :value="stage"
+                            >{{ stage.title }}</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -55,8 +33,13 @@
         <hr />
         <template v-for="(category, categoryIndex) of highlightedCategories">
             <div :key="category.tag">
-                <h5>{{ category.title }}</h5>
-                <p>{{ category.description }}</p>
+                <div class="row">
+                    <div class="col">
+                        <h5>{{ category.title }}</h5>
+                        <p>{{ category.description }}</p>
+                    </div>
+                </div>
+
                 <div class="row is-multiline">
                     <div
                         class="col is-4 is-flex"
@@ -126,3 +109,14 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.field,
+.control {
+    display: inline-block;
+}
+
+.select:not(.is-multiple):not(.is-loading):after {
+    margin-top: -1em;
+}
+</style>

@@ -19,7 +19,10 @@ The dev branch will be manually promoted to master for deployment periodically.
 ### Requirements
 
 -   Node.js v10 / npm v6
+-   rbenv*
 -   Ruby 2.5
+
+*npm commands detailed below assume the usage of [rbenv](https://github.com/rbenv/rbenv) to manage your Ruby environment. See `package.json`.
 
 ### Local development - frontend only
 

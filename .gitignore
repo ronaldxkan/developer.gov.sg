@@ -8,3 +8,4 @@ assets/bundles
 assets/**/*.bundle.js
 .netlify
 scripts
+*.log

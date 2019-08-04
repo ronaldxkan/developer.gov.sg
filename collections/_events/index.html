@@ -1,20 +1,35 @@
 ---
 title: Events
-layout: layout-editable
+layout: layout-page
 ---
 
 {%- assign categories = site.events | sort: "category" | group_by: "category" -%}
 {%- for category in categories -%}
     {%- if category.name != '' -%}
-        <h5>{{ category.name | capitalize }}</h5>
+        <h4>{{ category.name | capitalize }}</h4>
         {%- assign items = category.items -%}
         <div class="row is-multiline">
             {%- for item in items -%}
-            <div class="col is-4 is-flex">
+            <div class="col is-flex">
                 <a class="sgds-card sgds-card-button" href="{{ item.url }}">
+                    <div class="sgds-card-header">
+                        <p class="sgds-card-header-title">{{ item.title }}</p>
+                    </div>
                     <div class="sgds-card-content">
-                        <h6>{{ item.title }}</h6>
-                        <p>{{ item.description }}</p>
+                        <div class="row">
+                            <div class="col is-2 has-text-centered">
+                                <p>{{ item.month }}</p>
+                                <h2>{{ item.day }}</h2>
+                            </div>
+                            <div class="col is-10">
+                                <p>{{ item.description }}</p>
+                                <br>
+                                <small>
+                                    <span class="sgds-icon sgds-icon-my-location"></span>
+                                    {{ item.venue }}
+                                </small>
+                            </div>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -24,19 +39,17 @@ layout: layout-editable
     {%- endif -%}
 {%- endfor -%}
 
-<section class="sgds-section">
-    <div class="sgds-container">
-        <div id="events-app">
-            <!-- This spinner will show when the Vue app is loading -->
-            <div class="spinner">
-                <div class="rect1"></div>
-                <div class="rect2"></div>
-                <div class="rect3"></div>
-                <div class="rect4"></div>
-                <div class="rect5"></div>
-            </div>
-        </div>
+<hr>
+
+<div id="events-app">
+    <!-- This spinner will show when the Vue app is loading -->
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
     </div>
-</section>
+</div>
 
 <script async src="/assets/bundles/vue-events-app.bundle.js"></script>

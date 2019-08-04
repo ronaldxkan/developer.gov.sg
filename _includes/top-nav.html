@@ -1,10 +1,10 @@
 <div class="masthead-container is-fixed" id="navbar">
     {% include sgds-masthead.html %}
-    <nav class="navbar is-transparent">
+    <nav class="navbar">
         <div class="sgds-container">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
-                    <img src="/assets/img/logo_sgds.png" alt="">
+                    <img src="/assets/img/logo_developer.gov.sg.png" alt="Home">
                 </a>
                 <div class="navbar-burger burger" data-target="mainnav-1">
                     <span></span>
@@ -15,15 +15,13 @@
             <div id="mainnav-1" class="navbar-menu">
                 {%- assign links = site.data.navigation -%}
                 {%- for lvl1item in links -%}
-                <div class="navbar-item is-stretched">
                     {%- assign class = nil -%}
                     {%- if page.url contains lvl1item.url -%}
                     {%- assign class = 'is-active' -%}
                     {%- endif -%}
-                    <a class="navbar-item is-uppercase {{class}}" href="{{ lvl1item.url }}">
+                    <a class="navbar-item is-uppercase {{class}} is-tab" href="{{ lvl1item.url }}">
                         {{ lvl1item.title }}
                     </a>
-                </div>
                 {%- endfor -%}
             </div>
             <div class="navbar-end is-hidden-touch">

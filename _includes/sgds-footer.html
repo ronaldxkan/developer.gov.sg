@@ -48,9 +48,9 @@
                 </ul>
             </div>
             <div class="col is-12 has-text-right-desktop has-text-right-tablet has-text-left-mobile">
-                <p class="is-hidden-touch"> © 2019 Government of Singapore. Last Updated {{ site.time }}</p>
+                <p class="is-hidden-touch"> © 2019 Government of Singapore. Last Updated {{ site.time | date_to_string }}</p>
                 <p class="is-hidden-desktop">© 2019 Government of Singapore</p>
-                <p class="is-hidden-desktop last-updated">Last Updated {{ site.time }}</p>
+                <p class="is-hidden-desktop last-updated">Last Updated {{ site.time | date_to_string }}</p>
             </div>
         </div>
     </div>
